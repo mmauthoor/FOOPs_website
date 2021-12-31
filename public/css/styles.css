@@ -1,13 +1,21 @@
 /* To do
 /* dropdown menus */
 /* redo header bar to use flexbox? */
+/* footer covers content at small screen sizes */
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  height: 100vh;
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  padding-bottom: 6rem;
 }
 
 h1 {
@@ -41,7 +49,7 @@ a:hover {
   text-decoration: underline;
 }
 
-nav {
+header {
   background-color: #e8e0d8;
   display: flex;
   flex-direction: row;
@@ -49,7 +57,6 @@ nav {
   width: 100%;
   margin: 0;
   padding: 15px 0;
-  box-sixing: border-box;
 }
 
 .navbar-brand {
@@ -64,7 +71,11 @@ nav {
   line-height: 1.3;
 }
 
-nav img {
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+header img {
   flex: 0.5;
   border-radius: 5px;
   width: 250px;
@@ -72,39 +83,76 @@ nav img {
   margin: 10px 20px 10px 50px;
 }
 
-.navbar-options {
+nav {
   flex: 2;
   text-align: right;
   padding: 62px 2% 0;
 }
 
-.droptext {
-  color: #000;
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+nav li {
+  display: inline-block;
   font-weight: normal;
   text-align: center;
-  padding-bottom: 10px;
-  margin: 0 20px;
+  margin: 0 10px;
   text-decoration: none;
   font-size: 11pt;
   font-family: 'Montserrat', sans-serif;
   position: relative;
+  transition-duration: 0.5s;
 }
 
-.droptext:hover {
-  color: #1C7947;
+nav li:hover {
+	cursor: pointer;
 }
 
-.dropdown-content {
+nav a {
+  color: #000
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+nav ul li ul {
+  background: orange;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  /* display: none; */
+}
+
+nav ul li:hover > ul, nav ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+nav ul li ul li {
+	clear: both;
+  width: 100%;
+}
+
+
+/* .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   width: 100%;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 99;
 }
 
 .dropdown-content a {
-  /* display: block; */
+  display: block;
   padding: 12px;
   text-decoration: none;
   font-size: 10pt;
@@ -116,7 +164,7 @@ nav img {
 
 .dropdown:hover .dropdown {
   color: #1C7947;
-}
+} */
 
 .parallax {
   background-image: url("/images/Organ-Pipes-National-Park-@Wikimedia-Commons.jpg");
@@ -172,6 +220,7 @@ nav img {
 }
 
 footer {
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: center;
