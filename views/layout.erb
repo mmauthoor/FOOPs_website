@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Friends of the Organ Pipes National Park (FOOPs)</title>
+  <!-- Stylesheet -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Montserrat&family=Quicksand:wght@400;600&family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="icon" href="/images/favicon/favicon.ico">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/fb4fd08916.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <nav>
+    <img src="/images/banner.png" alt="logo" />
+    <p class="navbar-brand"> FOOPs </p>
+
+    <div class="navbar-options">
+      <!-- <ul>
+        <li><a href="#"> About</a> </li>
+        <ul class="submenu">
+          <li><a href="#">The Organ Pipes National Park</a>  </li>
+          <li><a href="#">FOOPs</a>  </li>
+        </ul>
+        <li><a href="#"> Join us</a> </li>
+        <li><a href="#"> Projects</a> </li>
+        <ul class="submenu">
+          <li><a href="#">Bat box monitoring</a>  </li>
+          <li><a href="#">Sugar glider monitoring</a>  </li>
+        </ul>
+        <li><a href="#"> Resources</a> </li>
+        <ul class="submenu">
+          <li><a href="#">Bibliography</a>  </li>
+          <li><a href="#">Additional websites</a>  </li>
+        </ul>
+
+      </ul>
+    </div>  -->
+
+      <a class="droptext" href="/">About</a>
+      <div class="dropdown-content">
+        <ul>
+          <li><a href="#">The Organ Pipes National Park</a></li>
+          <li><a href="#">FOOPs</a></li>
+        </ul>
+      </div>
+      <a class="droptext" href="/">Join us</a>
+      <a class="droptext" href="/">Projects</a>
+      <div class="dropdown-content">
+        <a href="#">Bat box monitoring</a>
+        <a href="#">Sugar glider monitoring</a>
+      </div>
+      <a class="droptext" href="/">Resources</a>
+      <div class="dropdown-content">
+        <a href="#">Bibliography</a>
+        <a href="#">Additional websites</a>
+      </div>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+   <footer>
+    <div class="footer-text">
+      <p>
+        ABN: 52283424923<br />
+        Reg: A0023884A</p>
+    </div>
+
+    <div class="footer-text" id="copyrightYear">
+      <p>
+        FOOPs acknowledge the traditional custodians of the area known as the Organ Pipes, <span class="acknowledgements">  the Wurundjeri people of the Kulin Nation.</span>
+
+      </p>
+    </div>
+    <div class="footer-text">
+      <p>
+        <a href="https://twitter.com/foopsnp" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/foopsnp" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/FriendsofOrganPipes/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <br />
+        info@friendsoforganpipes.org.au
+      </p>
+    </div>
+
+  </footer>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+  <!-- Javascript  -->
+  <script>
+    // Footer year
+    const yearArea = document.getElementById("copyrightYear");
+    const yearText = document.createElement("p");
+    const year = new Date().getFullYear();
+    yearText.innerHTML = "Copyright &copy; Friends of the Organ Pipes National Park " + year;
+    yearArea.appendChild(yearText);
+  </script>
+
+  <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
