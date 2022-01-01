@@ -32,9 +32,16 @@
         </p>
     </div>
     <div class="wb-dates">
-        <p>
-            Content to come: calendar API.
-        </p>
+        <h2>Upcoming working bee dates </h2>
         <img src="/images/logo-round.png" class="round-logo" />
+        <% dates.each do | date |%>
+            <% d = Date.parse(date["date"]) %> 
+            <% if d > Date.today %>
+                <p>
+                    <%= d.strftime('%d %B %Y') %>
+                </p>
+            <% end %>
+        <% end %>
+        
     </div>
 </div>

@@ -1,0 +1,8 @@
+<h1>Edit working bee dates</h1>
+<h2>Which month do you wish to update?</h2>
+
+<% dates.each do | date |%>
+        <div>
+            <a href="/edit_date/<%= date["id"]%>"><%= date["name"] %> </a>
+        </div>
+<% end %>
