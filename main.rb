@@ -3,6 +3,8 @@ require "sinatra/reloader"
 require "pg"
 require "pry"
 
+# need to create login route to check user login against database
+
 get "/" do
 
     conn = PG.connect( dbname: 'foopswbdates')
@@ -19,7 +21,13 @@ get "/about" do
 end
 
 get "/join" do
-    erb(:join)
+    conn = PG.connect( dbname: 'foopswbdates')
+    sql = "SELECT * FROM dates ORDER BY id;"
+    result = conn.exec(sql)
+    conn.close
+    erb(:join, locals: {
+        dates: result
+    })
 end
 
 get "/projects" do
@@ -30,7 +38,9 @@ get "/resources" do
     erb(:resources)
 end
 
-get "/edit" do
+# should only be able to access this route via login page for site admin
+# In database, change 'name' to 'month'
+get "/wbdates" do
     sql = "SELECT * FROM dates ORDER BY id;"
     conn = PG.connect( dbname: 'foopswbdates')
     result = conn.exec(sql)
@@ -41,7 +51,7 @@ get "/edit" do
     })
 end
 
-get "/edit_date/:id" do
+get "/wbdates/:id/edit" do
     
     sql = "SELECT * FROM dates WHERE id = #{params["id"]};"
     conn = PG.connect( dbname: 'foopswbdates')
@@ -54,22 +64,14 @@ get "/edit_date/:id" do
     })
 end
 
-put "/update_date/:id" do
+put "/wbdates/:id" do
 
     date = params["date"]
     sql = "UPDATE dates SET date = '#{params["date"]}' WHERE id = #{params["id"]};"
     conn = PG.connect(dbname: 'foopswbdates')
     conn.exec(sql)
     conn.close
-    # erb(:index, locals: {
-    #     date_1: params["date_1"],
-    #     date_2: params["date_2"],
-    #     date_3: params["date_3"],
-    #     date_4: params["date_4"],
-    #     date_5: params["date_5"],
-    #     date_6: params["date_6"]
-    # })
 
-    redirect "/edit"
+    redirect "/wbdates"
     
 end

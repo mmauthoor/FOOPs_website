@@ -44,6 +44,11 @@ a {
   font-weight: bold;
 }
 
+ul li {
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.7;
+}
+
 a:hover {
   color: #e1701a;
   text-decoration: underline;

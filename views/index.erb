@@ -33,15 +33,20 @@
     </div>
     <div class="wb-dates">
         <h2>Upcoming working bee dates </h2>
+        <p>Time: 9 a.m.-12 p.m. approx. </p>
+        <p>Location: outside the Visitor's Centre beside the carpark.</p>
         <img src="/images/logo-round.png" class="round-logo" />
-        <% dates.each do | date |%>
-            <% d = Date.parse(date["date"]) %> 
-            <% if d > Date.today %>
-                <p>
-                    <%= d.strftime('%d %B %Y') %>
-                </p>
+        <ul>
+            <% 0.upto(5) do | index |%>
+                <% date = dates[index]%>
+                <% d = Date.parse(date["date"]) %> 
+                <% if d > Date.today %>
+                    <li>
+                        <%= d.strftime('%A %d %B') %>
+                    </li>
+                <% end %>
             <% end %>
-        <% end %>
-        
+        </ul>
+        <p>View all <%= Date.today.year %> working bee dates <a href="/join">here</a>.</p>
     </div>
 </div>

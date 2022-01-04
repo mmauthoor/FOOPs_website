@@ -1,8 +1,8 @@
-<form action="/update_date/<%= date["id"]%>" method="post">
+<form action="/wbdates/<%= date["id"]%>" method="post">
     <input type="hidden" name="_method" value="put">
 
     <div>
-        <label for=""><%= date["name"]%></label>
+        <label for=""><%= date["month"]%></label>
         <input type="date" name="date" value="<%= date["date"]%>">
     </div>
 
@@ -10,4 +10,4 @@
 
 </form>
 
-<a href="/edit">Return to all dates</a>
+<a href="/wbdates">Return to all dates</a>

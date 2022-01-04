@@ -3,6 +3,6 @@
 
 <% dates.each do | date |%>
         <div>
-            <a href="/edit_date/<%= date["id"]%>"><%= date["name"] %> </a>
+            <a href="/wbdates/<%= date["id"]%>/edit"><%= date["month"] %> </a>
         </div>
 <% end %>

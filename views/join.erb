@@ -1,5 +1,19 @@
 <p> the positives of joining foops </p>
 <%# info about what we do, images %>
 
+
+<div class="wb-full-dates">
+<h2>All <%= Date.today.year %> working bee dates </h2>
+    <% dates.each do |date| %>
+        <% d = Date.parse(date["date"]) %> 
+            <% if d > Date.today %>
+                <p>
+                    <%= d.strftime('%A %d %B') %>
+                </p>
+            <% end %>
+    <% end %>
+</div>
+
+
 <%# mailing list - add mailchimp %>
 <%# contact form?? %>
