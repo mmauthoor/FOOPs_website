@@ -1,8 +1,19 @@
-<h1>Edit working bee dates</h1>
-<h2>Which month do you wish to update?</h2>
+<h1>Update working bee dates</h1>
+<%# <h2>Which month do you wish to update?</h2> %>
 
-<% dates.each do | date |%>
+<form action="/wbdates" method="post">
+    <input type="hidden" name="_method" value="put">
+
+    <% dates.each do | date |%>
+
         <div>
-            <a href="/wbdates/<%= date["id"]%>/edit"><%= date["month"] %> </a>
+            <label for=""><%= date["month"]%></label>
+            <input type="date" name="<%= date["id"] %>" value="<%= date["date"]%>">
         </div>
-<% end %>
+
+    <% end %>
+
+    <button>Update</button>
+
+</form>
+
